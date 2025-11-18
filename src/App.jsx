@@ -1,71 +1,76 @@
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import Booking from './components/Booking'
+import Destinations from './components/Destinations'
+import WhyUs from './components/WhyUs'
+import Testimonials from './components/Testimonials'
+import Footer from './components/Footer'
+
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      {/* Subtle pattern overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.05),transparent_50%)]"></div>
-
-      <div className="relative min-h-screen flex items-center justify-center p-8">
-        <div className="max-w-2xl w-full">
-          {/* Header with Flames icon */}
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center mb-6">
-              <img
-                src="/flame-icon.svg"
-                alt="Flames"
-                className="w-24 h-24 drop-shadow-[0_0_25px_rgba(59,130,246,0.5)]"
-              />
+    <div className="min-h-screen bg-[#0B1426]">
+      <Navbar />
+      <main className="[--midnight:#0B1426] [--cyan:#00D4FF] [--violet:#8B5CF6]">
+        <Hero />
+        <Booking />
+        <Destinations />
+        <WhyUs />
+        <Testimonials />
+        <section id="faqs" className="bg-[#0B1426] py-20">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="mb-10">
+              <h2 className="text-2xl md:text-3xl font-semibold text-white">FAQs</h2>
+              <p className="mt-2 text-slate-300/80">Answers to common questions.</p>
             </div>
-
-            <h1 className="text-5xl font-bold text-white mb-4 tracking-tight">
-              Flames Blue
-            </h1>
-
-            <p className="text-xl text-blue-200 mb-6">
-              Build applications through conversation
-            </p>
-          </div>
-
-          {/* Instructions */}
-          <div className="bg-slate-800/50 backdrop-blur-sm border border-blue-500/20 rounded-2xl p-8 shadow-xl mb-6">
-            <div className="flex items-start gap-4 mb-6">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold">
-                1
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">Describe your idea</h3>
-                <p className="text-blue-200/80 text-sm">Use the chat panel on the left to tell the AI what you want to build</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4 mb-6">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold">
-                2
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">Watch it build</h3>
-                <p className="text-blue-200/80 text-sm">Your app will appear in this preview as the AI generates the code</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold">
-                3
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">Refine and iterate</h3>
-                <p className="text-blue-200/80 text-sm">Continue the conversation to add features and make changes</p>
-              </div>
+            <div className="grid gap-4">
+              {[
+                ['Can I change my flight after booking?', 'Yes, most fares allow changes. We show fees upfront before you confirm.'],
+                ['How do I get my boarding pass?', 'You can add passes to your wallet with one tap after check-in.'],
+                ['Do you support multi-city trips?', 'Absolutely. Use advanced search to add up to 5 legs.'],
+              ].map(([q, a]) => (
+                <div key={q} className="rounded-2xl border border-white/10 bg-slate-900/40 p-6">
+                  <div className="text-white font-medium">{q}</div>
+                  <p className="mt-2 text-slate-300/80 text-sm">{a}</p>
+                </div>
+              ))}
             </div>
           </div>
-
-          {/* Footer */}
-          <div className="text-center">
-            <p className="text-sm text-blue-300/60">
-              No coding required • Just describe what you want
-            </p>
+        </section>
+        <section id="manage" className="bg-[#0B1426] py-20">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="mb-10">
+              <h2 className="text-2xl md:text-3xl font-semibold text-white">Manage your flight</h2>
+              <p className="mt-2 text-slate-300/80">Retrieve bookings, change seats, add bags, and more.</p>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-slate-900/40 p-6">
+              <form className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <input placeholder="Booking reference" className="rounded-xl bg-slate-800/60 border border-white/10 px-4 py-3 text-slate-100 outline-none focus:ring-2 focus:ring-cyan-400/40" />
+                <input placeholder="Last name" className="rounded-xl bg-slate-800/60 border border-white/10 px-4 py-3 text-slate-100 outline-none focus:ring-2 focus:ring-cyan-400/40" />
+                <button className="rounded-xl border border-white/30 px-6 py-3 text-slate-100 hover:border-white/70 transition-all">Find booking</button>
+              </form>
+            </div>
           </div>
-        </div>
-      </div>
+        </section>
+        <section id="signin" className="bg-[#0B1426] py-20">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="mb-10">
+              <h2 className="text-2xl md:text-3xl font-semibold text-white">Sign in</h2>
+              <p className="mt-2 text-slate-300/80">Access your trips and preferences anywhere.</p>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-slate-900/40 p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+              <form className="space-y-3">
+                <input placeholder="Email" className="w-full rounded-xl bg-slate-800/60 border border-white/10 px-4 py-3 text-slate-100 outline-none focus:ring-2 focus:ring-cyan-400/40" />
+                <input type="password" placeholder="Password" className="w-full rounded-xl bg-slate-800/60 border border-white/10 px-4 py-3 text-slate-100 outline-none focus:ring-2 focus:ring-cyan-400/40" />
+                <button className="rounded-full border border-white/30 px-6 py-2 text-slate-100 hover:border-white/70 transition-all">Sign in</button>
+              </form>
+              <div className="text-slate-400 text-sm">
+                New here? Create an account to sync preferences, earn rewards, and get proactive rebooking help when things change.
+              </div>
+            </div>
+          </div>
+        </section>
+        <Footer />
+      </main>
     </div>
   )
 }
